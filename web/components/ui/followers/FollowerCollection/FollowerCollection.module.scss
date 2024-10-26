@@ -1,0 +1,33 @@
+@import '../../../../styles/mixins.scss';
+
+.followers {
+  width: 100%;
+  padding: 5px;
+  min-height: 20vh;
+
+  .followerRow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 900px) {
+    .followerRow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @include screen(mobile) {
+    .followerRow {
+      display: block;
+      justify-content: center;
+    }
+  }
+}
+
+.noFollowers {
+  padding: var(--content-padding);
+  border-radius: var(--theme-rounded-corners);
+  width: 100%;
+}
+
+.pagination {
+  margin: 1rem;
+}

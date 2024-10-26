@@ -1,0 +1,57 @@
+{
+	"extends": [
+		"config:base"
+	],
+	"baseBranches": [
+		"develop"
+	],
+	"timezone": "America/Los_Angeles",
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true,
+		"platformAutomerge": true
+	},
+	"npm": {
+		"stabilityDays": 3
+	},
+	"dependencyDashboard": true,
+	"major": {
+		"dependencyDashboardApproval": true
+	},
+	"packageRules": [
+		{
+			"description": "Automatically merge minor and patch-level updates",
+			"matchUpdateTypes": [
+				"minor",
+				"patch",
+				"digest"
+			],
+			"automerge": true,
+			"automergeType": "branch",
+			"platformAutomerge": true,
+			"dependencyDashboardApproval": false
+		},
+		{
+			"description": "Require approval for every Go language update",
+			"dependencyDashboardApproval": true,
+			"matchPackagePatterns": [
+				"go"
+			]
+		},
+		{
+			"description": "Ignore the old pre-0.1.0 web packages",
+			"matchPackageNames": [
+				"postcss",
+				"tailwindcss",
+				"cssnano",
+				"htm",
+				"mark.js",
+				"postcss-cli",
+				"@videojs/themes",
+				"@joeattardi/emoji-button",
+				"preact"
+			],
+			"enabled": false
+		}
+	]
+}
